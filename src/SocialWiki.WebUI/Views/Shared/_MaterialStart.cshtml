@@ -1,0 +1,167 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Socialwiki @ViewBag.Title</title>
+    <!-- Vendor CSS -->
+    <link href="~/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="~/css/app.min.1.css" rel="stylesheet" />
+    <link href="~/css/app.min.2.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header id="header-2" class="clearfix" data-current-skin="lightblue">
+        <!-- Make sure to change both class and data-current-skin when switching sking manually -->
+        <ul class="header-inner clearfix">
+            <li id="menu-trigger" data-trigger=".ha-menu" class="visible-xs">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+            <li class="logo hidden-xs">
+                <a href="~/Home/index">
+                    <img src="~/img/logo-final72-388.png" height="18px" />
+                </a>
+            </li>
+        </ul>
+        <nav class="ha-menu">
+            @await Html.PartialAsync("_MiniLoginPartial")
+            <ul>
+                <li class="waves-effect">
+                <a asp-controller="Home" asp-action="Index">Início</a></li>
+
+                @if (User.IsSignedIn())
+                {
+                    <li class="dropdown">
+                        <div class="waves-effect" data-toggle="dropdown">Administração</div>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Category" asp-action="Index">Categorias</a></li>
+                            <li><a asp-controller="City" asp-action="Index">Cidades</a></li>
+                            <li><a asp-controller="Solver" asp-action="Index">Prefeituras</a></li>
+                        </ul>
+                    </li>
+                }
+                <li class="waves-effect">
+                    <a asp-controller="Home" asp-action="Explore">Explorar</a>
+                </li>
+                <li class="waves-effect"><a asp-controller="Complaint" asp-action="Index">Reclamações</a></li>
+                <li class="waves-effect"><a asp-controller="Solver" asp-action="Index">Prefeituras</a></li>
+                @*<li class="dropdown">
+                        <div class="waves-effect" data-toggle="dropdown">prefeituras</div>
+                        <ul class="dropdown-menu">
+                            <li><a href="widget-templates.html">Templates</a></li>
+                            <li><a href="widgets.html">Widgets</a></li>
+                        </ul>
+                    </li>*@
+                <li class="dropdown">
+                    <div class="waves-effect" data-toggle="dropdown">Ajuda</div>
+                    <ul class="dropdown-menu">
+                        <li><a href="tables.html">Normal Tables</a></li>
+                        <li><a href="data-tables.html">Data Tables</a></li>
+                    </ul>
+                </li>
+                <li class="waves-effect">
+                    <a asp-controller="Home" asp-action="Contact">Contato</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section id="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+    <footer id="footer">
+        Copyright &copy; 2015 Socialwiki.org.br
+
+        <ul class="f-menu">
+            <li><a asp-controller="Home" asp-action="Index">Início</a></li>
+            <li><a asp-controller="Home" asp-action="Explore">Explorar</a></li>
+            <li><a asp-controller="Home" asp-action="Index">Prefeituras</a></li>
+            <li<a asp-controller="Home" asp-action="Help">Ajuda</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Contato</a></li>
+        </ul>
+    </footer>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+            <p>Carregando...</p>
+        </div>
+    </div>
+    <!-- Javascript Libraries -->
+    <
+    <environment names="Development">
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script src="~/vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="~/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="~/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+        <script src="~/vendors/sparklines/jquery.sparkline.min.js"></script>
+        <script src="~/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+        <script src="~/vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="~/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js "></script>
+        <script src="~/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+        <script src="~/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="~/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="~/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="~/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+        <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+        <script src="~/js/flot-charts/curved-line-chart.js"></script>
+        <script src="~/js/flot-charts/line-chart.js"></script>
+        <script src="~/js/charts.js"></script>
+
+        <script src="~/js/charts.js"></script>
+        <script src="~/js/functions.js"></script>
+        <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+
+
+    </environment>
+    <environment names="Staging,Production">
+        @*<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery">
+
+            </script>
+            <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>*@
+
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("scripts", required: false)
+</body>
+</body>
+</html>

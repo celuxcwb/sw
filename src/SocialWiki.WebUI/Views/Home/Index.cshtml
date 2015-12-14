@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "_MaterialStart";
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/video.css" rel="stylesheet" />
+@*<div class="jumbotron">
+    <section class="content-section video-section">
+        <div class="container">
+
+            <div class="pattern-overlay">
+                <a id="bgndVideo" class="player" data-property="{videoURL:'https://youtu.be/VVpUw749DkY?t=6',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+
+                <div class="row">
+                    <p>
+                        <div class="col-lg-12">
+                            <h1>Você no comando!</h1>
+                            <h3>Ajude a sua cidade apontando os problemas!</h3>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>*@
+
+<div class="jumbotron">
+        <h1>Você no Controle!</h1>
+        <p>Seja bem vindo ao socialwiki, uma nova forma de praticar a cidadania e melhorar a sua cidade.</p>
+        <p><a class="btn btn-primary btn-lg waves-effect" href="#" role="button">Quero praticar cidadania</a></p>
+    </div>
+
+
+<section id="main">
+    <div class="row">
+        <br />
+        <div class="col-md-3">
+            <center>
+                <span class="sw glyphicon glyphicon-map-marker"></span>
+                <h2>Indique Problemas</h2>
+                O Socialwiki permite você cadastrar e discutir problemas nos serviços publicos da sua cidade
+            </center>
+        </div>
+        <div class="col-md-3">
+            <center>
+                <span class="sw glyphicon  glyphicon-thumbs-up"></span>
+                <h2>De sua Opnião</h2>
+                Após iniciar dialogo, você pode avaliar a qualidade do atendimento e da solução para sua prefeitura
+            </center>
+        </div>
+        <div class="col-md-3">
+            <center>
+                <span class="sw glyphicon  glyphicon-dashboard"></span>
+                <h2>Qualidade do serviço</h2>
+                Através da ferramenta, você pode saber como os problemas estã sendo realizados e avaliados na sua região
+            </center>
+        </div>
+        <div class="col-md-3">
+            <center>
+                <span class="sw glyphicon  glyphicon-send"></span>
+                <h2>Feedback</h2>
+                Prefeitos que conversam e solucionam problemas de seus cidadãos tem mais força politica
+            </center>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $(".player").mb_YTPlayer();
+
+        });
+    </script>
+}

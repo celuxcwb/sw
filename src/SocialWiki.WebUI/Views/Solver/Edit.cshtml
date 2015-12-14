@@ -1,0 +1,92 @@
+﻿@model SocialWiki.WebUI.ViewModels.Solver.SolverModel
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Material.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="bs-docs-example">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Criar novo resgistro de prefeitura</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Name)
+                @Html.ValidationMessageFor(model => model.solver.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Description)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Description)
+                @Html.ValidationMessageFor(model => model.solver.Description)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.City)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.solver.City,
+   new SelectList(Model.Cities, "Name", "Name"), new { @class = "tableInput" })
+                @Html.ValidationMessageFor(model => model.solver.City)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.UF)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.solver.UF,
+   new SelectList(Model.Cities, "UF", "UF"), new { @class = "tableInput" })
+                @Html.ValidationMessageFor(model => model.solver.UF)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Cnpj)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Cnpj)
+                @Html.ValidationMessageFor(model => model.solver.Cnpj)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Email)
+                @Html.ValidationMessageFor(model => model.solver.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Image)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Image)
+                @Html.ValidationMessageFor(model => model.solver.Image)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.solver.Site)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.solver.Site)
+                @Html.ValidationMessageFor(model => model.solver.Site)
+            </div>
+
+            <p>
+                <input type="submit" value="Salvar" />
+            </p>
+        </fieldset>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Voltar para a lista", "Index")
+</div>
+

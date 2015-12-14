@@ -1,0 +1,92 @@
+﻿@model SocialWiki.WebUI.Models.City
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Material.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="bs-docs-example">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Editar cidade</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UF)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UF)
+                @Html.ValidationMessageFor(model => model.UF)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IBGE)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IBGE)
+                @Html.ValidationMessageFor(model => model.IBGE)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.info_link)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.info_link)
+                @Html.ValidationMessageFor(model => model.info_link)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Lat)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Lat)
+                @Html.ValidationMessageFor(model => model.Lat)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.lng)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.lng)
+                @Html.ValidationMessageFor(model => model.lng)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Geometry)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Geometry)
+                @Html.ValidationMessageFor(model => model.Geometry)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Population)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Population)
+                @Html.ValidationMessageFor(model => model.Population)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TOTAL_AREA)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TOTAL_AREA)
+                @Html.ValidationMessageFor(model => model.TOTAL_AREA)
+            </div>
+            <p>
+                <input type="submit" value="Salvar" />
+            </p>
+        </fieldset>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Voltar para a lista", "Index")
+</div>
+
